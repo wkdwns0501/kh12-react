@@ -297,7 +297,7 @@ const Exam10 = ()=> {
                         </div>
                     </div>
                      {/* Modal  */}
-                     <div className="modal fade" ref={bsModal} id="exampleModal" 
+                    <div className="modal fade" ref={bsModal} id="exampleModal" 
                     data-bs-backdrop="static" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog">
                         <div className="modal-content">
