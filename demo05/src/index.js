@@ -11,8 +11,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 //Router는 React 앱을 여러 페이지로 분할하여 사용하도록 만드는 기술
-// - HashRouter는 주소에 해시(#)가 포함된다 //아무리 페이지를 많이 만들어 놔도 전체로 1번밖에 안보인다
-// - BrowserRouter는 주소에 해시(#)가 포함되지 않는다
+// - HashRouter는 주소에 해시(#)가 포함된다 //아무리 페이지를 많이 만들어 놔도 전체로 1페이지로 밖에 안보인다
+// - BrowserRouter는 주소에 해시(#)가 포함되지 않는다 //페이지가 각각 다르다
 // import {BrowserRouter} from 'react-router-dom';
 import {HashRouter} from 'react-router-dom';
 
