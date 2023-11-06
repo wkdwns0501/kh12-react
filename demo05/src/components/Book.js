@@ -7,7 +7,8 @@ import "./Book.css"
 
 const Book = (props)=>{
     const [bookList, setBookList] = useState([]);
-    useEffect(()=>{
+
+    const loadBook =()=> {
         axios({
             //서버에 있는 도서 정보를 불러와서 state에 반영하는 코드
             url:"http://localhost:8080/book/",
@@ -20,13 +21,34 @@ const Book = (props)=>{
         .catch(err=>{
             window.alert("통신 오류 발생");
         });
+    }
+
+    useEffect(()=>{
+        loadBook();
     },[]);
+
+    const deleteBook = (book) => {
+        const choice = window.confirm("정말 삭제하시겠습니까?");
+        if(choice === false) return;
+
+        //axios({옵션}).then(성공시 실행할 함수). catch(실패시 실행할 함수);
+        axios({
+            // url:"http://localhost:8080/book/" + book.bookId,
+            url:`http://localhost:8080/book/${book.bookId}`, //백틱은 jsp에서 못쓴다
+            method:"delete"
+        })
+        .then(response=>{
+            loadBook();//목록 갱신
+        })
+        .catch(err=>{});
+    };
+
     return (
         <>
             <div className="row">
                 <div className="col">
                     <h1>도서 관리</h1>
-                    <p>React CRUD 연습 예제</p>
+                    <hr></hr>
                 </div>
             </div>
 
@@ -60,7 +82,8 @@ const Book = (props)=>{
                                     <td>
                                         {/* 아이콘 처리 */}
                                         <AiOutlineEdit className="text-warning me-1"/>
-                                        <AiOutlineDelete className="text-danger"/>
+                                        <AiOutlineDelete className="text-danger"
+                                            onClick={e=>deleteBook(book)}/>
                                     </td>
                                 </tr>
                             ))}
