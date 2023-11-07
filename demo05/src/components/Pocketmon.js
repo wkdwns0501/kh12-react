@@ -126,7 +126,7 @@ const Pocketmon = (props)=>{
 
             {/* 추가 버튼 */}
             <div className="row mt-4">
-                <div className="col">
+                <div className="col text-end">
                     <button className="btn btn-success" onClick={openModal}>
                         <AiOutlinePlus/>
                         추가
